@@ -56,6 +56,16 @@ pixel_posting_params = {
     "quantity":quantity
 }
 
-post_pixel_resp = requests.post(url=pixel_posting_endpoint, headers=graph_headers,json=pixel_posting_params)
-#post_pixel_resp.raise_for_status()
-print(post_pixel_resp.text)
+# post_pixel_resp = requests.post(url=pixel_posting_endpoint, headers=graph_headers,json=pixel_posting_params)
+# #post_pixel_resp.raise_for_status()
+# print(post_pixel_resp.text)
+
+update_endpt = f"{pixel_posting_endpoint}/{todays_date}"
+
+update_params = {
+    "quantity":"4"
+}
+# update_resp = requests.put(url=update_endpt, headers=graph_headers,json=update_params)
+
+delete_resp = requests.delete(url=update_endpt, headers=graph_headers,json=update_params)
+print(delete_resp.text)
